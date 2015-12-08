@@ -1,8 +1,12 @@
+var quoteCategories = ["courage", "inspirational", "motivational", "hope", "dream", "strength", "success", "beauty", "imagination"];
+
+var categoryString = "";
+categoryString = pickAElement(quoteCategories);
+
 $(document).ready(function() {
-    // $.ajax(getQuote);
-    $.ajax(getCategories);
 
-
+    $.ajax(getQuote);
+    // $.ajax(getCategories);
 
 }); // END DOC READY
 
@@ -13,7 +17,7 @@ var getQuote = {
     url: ' https://theysaidso.p.mashape.com/quote?',
     dataType: 'json',
     data: {
-        category: 'inspire',
+        category: 'dream',
         maxlength: 500
     },
     success: function(data) {
@@ -51,3 +55,7 @@ var getCategories = {
 
     }
 };
+
+function pickAElement(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
